@@ -506,7 +506,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     isCorrect = userAnswer.toLowerCase().trim() === q.correctAnswer.toLowerCase().trim();
                 }
             } else if (q.type === 'number') {
-                isCorrect = parseInt(userAnswer) === q.correctAnswer;
+				isCorrect = parseFloat(userAnswer) === q.correctAnswer;
             }
 
             if (isCorrect) {

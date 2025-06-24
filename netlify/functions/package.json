@@ -13,5 +13,5 @@
     "nodemailer": "^6.9.14",
     "pg": "^8.12.0" 
   },
-  "description": "Netlify Functions for Key Stage 1 Online Assessment"
+  "description": "Netlify Functions for Key Stage 3 Online Assessment"
 }

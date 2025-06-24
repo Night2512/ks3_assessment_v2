@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     // --- Customizable Content (for Admins) ---
     const CUSTOM_CONTENT = {
-        mainTitle: "Key Stage 1 Online Assessment - Mona Teaches",
+        mainTitle: "Key Stage 3 Online Assessment - Mona Teaches",
         infoHeading: "Start Your Assessment",
         infoInstructions: "Please provide the following information to begin the assessment:",
         assessmentIntro: "The assessment has a 15 minute time limit. It will automatically submit once this time expires.",
@@ -54,7 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let assessmentTextResults = ''; // To store plain text results for emailing
     let assessmentHtmlResults = ''; // To store HTML results for emailing
-    const CURRENT_KEY_STAGE = "Key Stage 1"; // Define the current Key Stage
+    const CURRENT_KEY_STAGE = "Key Stage 3"; // Define the current Key Stage
 
     // --- Timer Variables ---
     const totalTime = 15 * 60; // 15 minutes in seconds

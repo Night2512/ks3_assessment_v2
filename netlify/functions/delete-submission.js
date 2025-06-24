@@ -45,8 +45,8 @@ exports.handler = async (event, context) => {
 
   try {
     const pool = await getDbConnection();
-    // Deleting from the 'assessments' table
-    const result = await pool.query('DELETE FROM assessments WHERE id = $1 RETURNING id', [id]);
+    // Deleting from the 'assessmentsks3' table
+    const result = await pool.query('DELETE FROM assessmentsks3 WHERE id = $1 RETURNING id', [id]);
 
     if (result.rowCount === 0) {
       return {

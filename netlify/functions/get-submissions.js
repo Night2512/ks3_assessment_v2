@@ -39,7 +39,7 @@ exports.handler = async (event, context) => {
     const pool = await getDbConnection();
     // Corrected: Querying 'submitted_at' column instead of 'submission_time'
     // Also INCLUDE 'detailed_results' in the SELECT statement
-    const result = await pool.query('SELECT id, child_name, parent_name, parent_email, score, total_questions, expectations, submitted_at, detailed_results FROM assessments ORDER BY submitted_at DESC');
+    const result = await pool.query('SELECT id, child_name, parent_name, parent_email, score, total_questions, expectations, submitted_at, detailed_results FROM assessmentsks3 ORDER BY submitted_at DESC');
     
     // Map the 'submitted_at' column to 'submission_time' for frontend consistency
     // And also include 'detailed_results' in the mapped object

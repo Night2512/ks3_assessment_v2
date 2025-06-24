@@ -33,7 +33,7 @@ exports.handler = async (event) => {
 
     const pool = await getDbConnection();
     await pool.query(
-      `INSERT INTO assessments (child_name, parent_name, parent_email, score, total_questions, expectations, detailed_results)
+      `INSERT INTO assessmentsks3 (child_name, parent_name, parent_email, score, total_questions, expectations, detailed_results)
        VALUES ($1, $2, $3, $4, $5, $6, $7)`,
       [childName, parentName, parentEmail, score, totalQuestions, expectations, JSON.stringify(detailedResults)] // detailedResults as JSONB
     );

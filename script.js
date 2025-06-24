@@ -64,264 +64,284 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- Assessment Data (Extracted from your index.html and corrected with your provided answers) ---
     const questions = [
-        {
-            id: 'q1',
-            type: 'radio',
-            topicHeading: "Reading Comprehension - Passage",
-            question: "What is the cat's name?",
-            passage: "Lily loves animals. She has a fluffy white cat named Snowdrop. Snowdrop likes to play with a red ball of yarn. Lily also has a small, brown dog called Buster. Buster loves to run in the park and chase squirrels.",
-            options: { a: "Buster", b: "Snowdrop", c: "Lily" },
-            correctAnswer: "b",
-            correctAnswerDisplay: "Snowdrop"
-        },
-        {
-            id: 'q2',
-            type: 'radio',
-            topicHeading: "Reading Comprehension - Detail",
-            question: "What colour is the cat?",
-            options: { a: "Brown", b: "Red", c: "White" },
-            correctAnswer: "c",
-            correctAnswerDisplay: "White"
-        },
-        {
-            id: 'q3',
-            type: 'text',
-            topicHeading: "Grammar - Plural Nouns",
-            question: "Fill in the missing word: Lily gets a second fluffy white cat. Now she has two fluffy white ____.",
-            correctAnswer: "cats",
-            explanation: "The plural of cat is 'cats'."
-        },
-        {
-            id: 'q4',
-            type: 'text',
-            topicHeading: "Spelling - Animal Names",
-            question: "Spell the word for the animal that chases squirrels in the park.",
-            correctAnswer: "dog",
-            explanation: "The animal that chases squirrels in the park is a dog."
-        },
-        {
-            id: 'q5',
-            type: 'text',
-            topicHeading: "Sentence Structure - Reordering",
-            question: "Put the words in the correct order to make a sentence: park., to, in, run, loves, Buster, the",
-            correctAnswer: "Buster loves to run in the park.",
-            explanation: "The correct sentence is 'Buster loves to run in the park.'"
-        },
-        {
-            id: 'q6',
-            type: 'text',
-            topicHeading: "Grammar - Verbs",
-            question: "What is the verb in the sentence: \"The bird flies high.\"?",
-            correctAnswer: "flies",
-            explanation: "The verb describes the action, which is 'flies'."
-        },
-        {
-            id: 'q7',
-            type: 'radio',
-            topicHeading: "Vocabulary - Opposites",
-            question: "What is the opposite of 'big'?",
-            options: { a: "large", b: "small", c: "huge" },
-            correctAnswer: "b",
-            correctAnswerDisplay: "small"
-        },
-        {
-            id: 'q8',
-            type: 'radio',
-            topicHeading: "Phonics - Rhyming Words",
-            question: "Which word rhymes with 'tree'?",
-            options: { a: "bee", b: "cat", c: "dog" },
-            correctAnswer: "a",
-            correctAnswerDisplay: "bee"
-        },
-        {
-            id: 'q9',
-            type: 'text',
-            topicHeading: "Vocabulary - Sentence Completion",
-            question: "Complete the sentence: \"I like to read a good _____.\"",
-            correctAnswer: "book",
-            explanation: "A common word to complete the sentence is 'book'."
-        },
-        {
-            id: 'q10',
-            type: 'radio',
-            topicHeading: "Grammar - Nouns",
-            question: "Which word is a noun?",
-            options: { a: "run", b: "quickly", c: "table" },
-            correctAnswer: "c",
-            correctAnswerDisplay: "table"
-        },
-        {
-            id: 'q11',
-            type: 'radio',
-            topicHeading: "Grammar - Past Tense",
-            question: "What is the past tense of 'go'?",
-            options: { a: "went", b: "go", c: "goes" },
-            correctAnswer: "a",
-            correctAnswerDisplay: "went"
-        },
-        {
-            id: 'q12',
-            type: 'text',
-            topicHeading: "Sentence Construction - Word Usage",
-            question: "Write a sentence using the word 'blue'.",
-            correctAnswer: "The sky is blue.", // This is now an example, not a strict match
-            explanation: "An example sentence is 'The sky is blue.' (Other grammatically correct sentences using 'blue' would also be acceptable)."
-        },
-        {
-            id: 'q13',
-            type: 'text',
-            topicHeading: "Grammar - Contractions",
-            question: "What is the contraction for 'I am'?",
-            correctAnswer: "I'm",
-            explanation: "The contraction for 'I am' is 'I'm'."
-        },
-        {
-            id: 'q14',
-            type: 'radio',
-            topicHeading: "Mathematics - Counting",
-            question: "How many apples are there?",
-            image: "images/13_apples.jpg", // Added image path
-            imageAlt: "A picture of 13 apples",
-            options: { a: "11", b: "13", c: "15" },
-            correctAnswer: "b",
-            correctAnswerDisplay: "13"
-        },
-        {
-            id: 'q15',
-            type: 'number',
-            topicHeading: "Mathematics - Addition",
-            question: "What is 7 + 5?",
-            correctAnswer: 12,
-            explanation: "7 plus 5 equals 12."
-        },
-        {
-            id: 'q16',
-            type: 'number',
-            topicHeading: "Mathematics - Subtraction",
-            question: "What is 10 - 3?",
-            correctAnswer: 7,
-            explanation: "10 minus 3 equals 7."
-        },
-        {
-            id: 'q17',
-            type: 'number',
-            topicHeading: "Mathematics - Missing Numbers",
-            question: "5 + ___ = 10",
-            correctAnswer: 5,
-            explanation: "5 plus 5 equals 10."
-        },
-        {
-            id: 'q18',
-            type: 'radio',
-            topicHeading: "Mathematics - Telling Time",
-            question: "What time does the clock show?",
-            image: "images/clock_3_oclock.png", // Added image path
-            imageAlt: "A clock showing 3 o'clock",
-            options: { a: "1 o'clock", b: "3 o'clock", c: "6 o'clock" },
-            correctAnswer: "b",
-            correctAnswerDisplay: "3 o'clock"
-        },
-        {
-            id: 'q19',
-            type: 'number',
-            topicHeading: "Mathematics - Word Problems (Addition)",
-            question: "Sarah has 6 red pens and 4 blue pens. How many pens does she have altogether?",
-            correctAnswer: 10,
-            explanation: "6 pens + 4 pens = 10 pens."
-        },
-        {
-            id: 'q20',
-            type: 'radio',
-            topicHeading: "Mathematics - Fractions",
-            question: "What fraction of the circle is shaded?",
-            image: "images/shaded_circle.png", // Added image path
-            imageAlt: "A circle with one-fourth shaded",
-            options: { a: "1/2", b: "1/3", c: "1/4" },
-            correctAnswer: "c",
-            correctAnswerDisplay: "1/4"
-        },
-        {
-            id: 'q21',
-            type: 'number',
-            topicHeading: "Mathematics - Geometry (Shapes)",
-            question: "How many corners does a square have?",
-            correctAnswer: 4,
-            explanation: "A square has 4 corners."
-        },
-        {
-            id: 'q22',
-            type: 'number',
-            topicHeading: "Mathematics - Repeated Addition",
-            question: "What is 2 + 2 + 2?",
-            correctAnswer: 6,
-            explanation: "2 + 2 + 2 = 6."
-        },
-        {
-            id: 'q23',
-            type: 'number',
-            topicHeading: "Mathematics - Word Problems (Subtraction)",
-            question: "If you have 7 balloons and 3 pop, how many are left?",
-            correctAnswer: 4,
-            explanation: "7 balloons - 3 popped balloons = 4 balloons left."
-        },
-        {
-            id: 'q24',
-            type: 'number',
-            topicHeading: "Mathematics - Halving",
-            question: "Half of 12 is?",
-            correctAnswer: 6,
-            explanation: "Half of 12 is 6."
-        },
-        {
-            id: 'q25',
-            type: 'number',
-            topicHeading: "Mathematics - Number Patterns",
-            question: "Count by 5s: 5, 10, 15, ___?",
-            correctAnswer: 20,
-            explanation: "The next number in the pattern 5, 10, 15 is 20 (counting by 5s)."
-        },
-        {
-            id: 'q26',
-            type: 'text',
-            topicHeading: "Mathematics - Geometry (Everyday Objects)",
-            question: "What shape is a regular door?",
-            correctAnswer: "rectangle",
-            explanation: "A regular door is typically a rectangle."
-        },
-        {
-            id: 'q27',
-            type: 'number',
-            topicHeading: "Mathematics - Time (Days in a Week)",
-            question: "How many days are in a week?",
-            correctAnswer: 7,
-            explanation: "There are 7 days in a week."
-        },
-        {
-            id: 'q28',
-            type: 'number',
-            topicHeading: "Mathematics - Subtraction",
-            question: "What is 15 take away 5?",
-            correctAnswer: 10,
-            explanation: "15 take away 5 equals 10."
-        },
-        {
-            id: 'q29',
-            type: 'radio',
-            topicHeading: "Mathematics - Measurement (Weight)",
-            question: "Which is heavier, a feather or a brick?",
-            options: { a: "Feather", b: "Brick" },
-            correctAnswer: "b",
-            correctAnswerDisplay: "Brick"
-        },
-        {
-            id: 'q30',
-            type: 'number',
-            topicHeading: "Mathematics - Multiplication (Groups)",
-            question: "If you have 4 groups of 2 objects, how many objects do you have in total?",
-            correctAnswer: 8,
-            explanation: "4 groups of 2 objects is 4 multiplied by 2, which equals 8."
-        }
-    ];
+	  {
+		"id": "q1",
+		"type": "text",
+		"topicHeading": "English - Grammar (Clauses)",
+		"question": "Identify the subordinate clause in the following sentence: \"Although it was raining, we still went for a walk.\"",
+		"correctAnswer": "Although it was raining",
+		"explanation": "A subordinate clause, also known as a dependent clause, cannot stand alone as a complete sentence. 'Although it was raining' depends on the main clause 'we still went for a walk' for its full meaning."
+	  },
+	  {
+		"id": "q2",
+		"type": "text",
+		"topicHeading": "English - Grammar (Voice)",
+		"question": "Change the following sentence from active to passive voice: \"The dog chased the cat.\"",
+		"correctAnswer": "The cat was chased by the dog.",
+		"explanation": "In passive voice, the object of the active sentence becomes the subject, and the action is performed by a form of 'to be' + past participle. The original subject is often introduced with 'by'."
+	  },
+	  {
+		"id": "q3",
+		"type": "radio",
+		"topicHeading": "English - Literary Devices (Simile)",
+		"question": "Which of these is an example of a simile?",
+		"options": {
+		  "a": "The car flew down the road.",
+		  "b": "Her smile was as bright as the sun.",
+		  "c": "Time is a thief."
+		},
+		"correctAnswer": "b",
+		"correctAnswerDisplay": "Her smile was as bright as the sun."
+	  },
+	  {
+		"id": "q4",
+		"type": "text",
+		"topicHeading": "English - Punctuation",
+		"question": "Add the correct punctuation to this sentence: \"The teacher asked who was ready for the test\"",
+		"correctAnswer": "The teacher asked, \"Who was ready for the test?\"",
+		"explanation": "Direct speech requires quotation marks around the spoken words and a comma before the opening quotation mark. The question mark goes inside the quotation marks because the quoted part is a question."
+	  },
+	  {
+		"id": "q5",
+		"type": "radio",
+		"topicHeading": "English - Vocabulary (Antonyms)",
+		"question": "What is an antonym for 'benevolent'?",
+		"options": {
+		  "a": "kind",
+		  "b": "generous",
+		  "c": "malevolent"
+		},
+		"correctAnswer": "c",
+		"correctAnswerDisplay": "malevolent"
+	  },
+	  {
+		"id": "q6",
+		"type": "text",
+		"topicHeading": "English - Grammar (Subject-Verb Agreement)",
+		"question": "Correct the grammatical error in this sentence: \"He don't like broccoli.\"",
+		"correctAnswer": "He doesn't like broccoli.",
+		"explanation": "For third-person singular subjects (he, she, it), the correct form of 'do not' is 'does not' or 'doesn't'."
+	  },
+	  {
+		"id": "q7",
+		"type": "text",
+		"topicHeading": "English - Word Structure (Prefixes)",
+		"question": "Identify the prefix in the word 'unbelievable'.",
+		"correctAnswer": "un",
+		"explanation": "A prefix is a morpheme added to the beginning of a word to alter its meaning. 'Un-' means 'not' or 'opposite of'."
+	  },
+	  {
+		"id": "q8",
+		"type": "radio",
+		"topicHeading": "English - Punctuation (Semicolons)",
+		"question": "Which sentence uses a semicolon correctly?",
+		"options": {
+		  "a": "I like apples; she likes oranges.",
+		  "b": "He went to the park; and played.",
+		  "c": "She likes to read; sing and dance."
+		},
+		"correctAnswer": "a",
+		"correctAnswerDisplay": "I like apples; she likes oranges."
+	  },
+	  {
+		"id": "q9",
+		"type": "radio",
+		"topicHeading": "English - Homophones",
+		"question": "Which sentence correctly explains the difference between 'there', 'their', and 'they're'?",
+		"options": {
+		  "a": "'There' indicates a place, 'their' shows possession, 'they're' is a contraction of 'they are'.",
+		  "b": "'Their' indicates a place, 'there' shows possession, 'they're' is a contraction of 'they are'.",
+		  "c": "'They're' indicates a place, 'there' shows possession, 'their' is a contraction of 'they are'.",
+		  "d": "All three words can be used interchangeably."
+		},
+		"correctAnswer": "a",
+		"correctAnswerDisplay": "'There' indicates a place, 'their' shows possession, 'they're' is a contraction of 'they are'."
+	  },
+	  {
+		"id": "q10",
+		"type": "text",
+		"topicHeading": "English - Parts of Speech (Adjectives)",
+		"question": "Identify the adjective in: \"The tall building stood majestically.\"",
+		"correctAnswer": "tall",
+		"explanation": "An adjective describes a noun. 'Tall' describes the 'building'."
+	  },
+	  {
+		"id": "q11",
+		"type": "radio",
+		"topicHeading": "English - Homophones",
+		"question": "Choose the correct homophone: \"I need to (buy/by) some milk.\"",
+		"options": {
+		  "a": "buy",
+		  "b": "by"
+		},
+		"correctAnswer": "a",
+		"correctAnswerDisplay": "buy"
+	  },
+	  {
+		"id": "q12",
+		"type": "radio",
+		"topicHeading": "English - Figurative Language (Idioms)",
+		"question": "What does the idiom \"to bite the bullet\" mean?",
+		"options": {
+		  "a": "To literally bite a metal object.",
+		  "b": "To face a difficult or unpleasant situation with courage and endurance.",
+		  "c": "To quickly solve a problem.",
+		  "d": "To give up easily."
+		},
+		"correctAnswer": "b",
+		"correctAnswerDisplay": "To face a difficult or unpleasant situation with courage and endurance."
+	  },
+	  {
+		"id": "q13",
+		"type": "text",
+		"topicHeading": "English - Spelling",
+		"question": "Correct the spelling: \"necessery\"",
+		"correctAnswer": "necessary",
+		"explanation": "The correct spelling is 'necessary'."
+	  },
+	  {
+		"id": "q14",
+		"type": "text",
+		"topicHeading": "English - Sentence Structure (Compound Sentences)",
+		"question": "Form a compound sentence from: \"The sun was setting. The sky turned orange.\"",
+		"correctAnswer": "The sun was setting, and the sky turned orange.",
+		"explanation": "A compound sentence joins two independent clauses, often with a coordinating conjunction like 'and' or a semicolon."
+	  },
+	  {
+		"id": "q15",
+		"type": "radio",
+		"topicHeading": "English - Word Usage (Affect vs. Effect)",
+		"question": "Is \"affect\" or \"effect\" used correctly: \"The rain will (affect/effect) our plans.\"",
+		"options": {
+		  "a": "affect",
+		  "b": "effect"
+		},
+		"correctAnswer": "a",
+		"correctAnswerDisplay": "affect"
+	  },
+	  {
+		"id": "q16",
+		"type": "text",
+		"topicHeading": "Mathematics - Algebra (Simplifying Expressions)",
+		"question": "Simplify the expression: 3a + 5b - a + 2b",
+		"correctAnswer": "2a + 7b",
+		"explanation": "Combine like terms: (3a - a) + (5b + 2b) = 2a + 7b."
+	  },
+	  {
+		"id": "q17",
+		"type": "number",
+		"topicHeading": "Mathematics - Algebra (Solving Equations)",
+		"question": "Solve for x: 2x + 7 = 15",
+		"correctAnswer": 4,
+		"explanation": "Subtract 7 from both sides: 2x = 8. Divide by 2: x = 4."
+	  },
+	  {
+		"id": "q18",
+		"type": "number",
+		"topicHeading": "Mathematics - Number (Powers/Exponents)",
+		"question": "What is the value of 5³ (5 cubed)?",
+		"correctAnswer": 125,
+		"explanation": "5³ means 5 * 5 * 5 = 25 * 5 = 125."
+	  },
+	  {
+		"id": "q19",
+		"type": "number",
+		"topicHeading": "Mathematics - Fractions",
+		"question": "Calculate 3/5 of 100.",
+		"correctAnswer": 60,
+		"explanation": "(3/5) * 100 = (3 * 100) / 5 = 300 / 5 = 60."
+	  },
+	  {
+		"id": "q20",
+		"type": "text",
+		"topicHeading": "Mathematics - Probability",
+		"question": "If a bag contains 5 red balls, 3 blue balls, and 2 green balls, what is the probability of picking a blue ball?",
+		"correctAnswer": "3/10",
+		"explanation": "There are 3 blue balls and a total of 5 + 3 + 2 = 10 balls. Probability = (Number of favorable outcomes) / (Total number of outcomes) = 3/10."
+	  },
+	  {
+		"id": "q21",
+		"type": "number",
+		"topicHeading": "Mathematics - Geometry (Area)",
+		"question": "Find the area of a rectangle with length 8 cm and width 5 cm.",
+		"correctAnswer": 40,
+		"explanation": "Area of a rectangle = length × width. So, 8 cm * 5 cm = 40 cm²."
+	  },
+	  {
+		"id": "q22",
+		"type": "number",
+		"topicHeading": "Mathematics - Decimals & Percentages",
+		"question": "Convert 0.75 into a percentage.",
+		"correctAnswer": 75,
+		"explanation": "To convert a decimal to a percentage, multiply by 100. So, 0.75 * 100 = 75%."
+	  },
+	  {
+		"id": "q23",
+		"type": "number",
+		"topicHeading": "Mathematics - Percentages (Discounts)",
+		"question": "A jacket costs £60. If it has a 20% discount, what is its new price?",
+		"correctAnswer": 48,
+		"explanation": "A 20% discount means you pay 80% of the original price. 0.80 * £60 = £48."
+	  },
+	  {
+		"id": "q24",
+		"type": "number",
+		"topicHeading": "Mathematics - Geometry (Angles/Polygons)",
+		"question": "What is the size of each interior angle of a regular octagon?",
+		"image": "images/octagon.png",
+		"imageAlt": "Image of a regular octagon.",
+		"correctAnswer": 135,
+		"explanation": "The formula for the interior angle of a regular polygon is ((n-2) * 180) / n, where n is the number of sides. For an octagon, n=8. So, ((8-2) * 180) / 8 = (6 * 180) / 8 = 1080 / 8 = 135 degrees."
+	  },
+	  {
+		"id": "q25",
+		"type": "text",
+		"topicHeading": "Mathematics - Algebra (Expanding & Simplifying)",
+		"question": "Expand and simplify: 2(x + 3) + 4x",
+		"correctAnswer": "6x + 6",
+		"explanation": "Distribute the 2: 2x + 6 + 4x. Combine like terms: 6x + 6."
+	  },
+	  {
+		"id": "q26",
+		"type": "number",
+		"topicHeading": "Mathematics - Number (Pi)",
+		"question": "What is the value of pi (π) to two decimal places?",
+		"correctAnswer": 3.14,
+		"explanation": "Pi (π) is approximately 3.14159..., so to two decimal places, it is 3.14."
+	  },
+	  {
+		"id": "q27",
+		"type": "number",
+		"topicHeading": "Mathematics - Ratio & Proportion (Scale)",
+		"question": "A map has a scale of 1:1000. If a building is 5 cm long on the map, what is its real length in meters?",
+		"correctAnswer": 50,
+		"explanation": "The real length is 5 cm * 1000 = 5000 cm. Since 1 meter = 100 cm, 5000 cm = 50 meters."
+	  },
+	  {
+		"id": "q28",
+		"type": "number",
+		"topicHeading": "Mathematics - Geometry (Volume)",
+		"question": "Calculate the volume of a cuboid with length 4 cm, width 3 cm, and height 2 cm.",
+		"correctAnswer": 24,
+		"explanation": "Volume of a cuboid = length × width × height. So, 4 cm * 3 cm * 2 cm = 24 cm³."
+	  },
+	  {
+		"id": "q29",
+		"type": "number",
+		"topicHeading": "Mathematics - Sequences",
+		"question": "What is the next number in the sequence: 1, 4, 9, 16, ___?",
+		"correctAnswer": 25,
+		"explanation": "This sequence consists of perfect squares: 1²=1, 2²=4, 3²=9, 4²=16. The next number is 5²=25."
+	  },
+	  {
+		"id": "q30",
+		"type": "text",
+		"topicHeading": "Mathematics - Algebra (Inequalities)",
+		"question": "Solve the inequality: 3x - 5 < 10",
+		"correctAnswer": "x < 5",
+		"explanation": "Add 5 to both sides: 3x < 15. Divide by 3: x < 5."
+	  }
+	];
 
     let userAnswers = {};
     let currentQuestionIndex = 0;

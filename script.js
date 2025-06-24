@@ -705,6 +705,13 @@ ${resultsTextContent}
         startTimer();
     });
 
+    // New: Prevent unintended form submission on Enter key press within info form inputs
+    infoForm.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter') {
+            e.preventDefault(); // Stop the default form submission unconditionally
+        }
+    });
+
     // Cloudflare Turnstile Callback
     window.turnstileCallback = function(token) {
         // Verify token server-side (optional but recommended)
@@ -741,15 +748,14 @@ ${resultsTextContent}
     // New: Prevent unintended form submission on Enter key press within assessment questions
     assessmentForm.addEventListener('keydown', function(e) {
         if (e.key === 'Enter') {
-            const focusedElement = e.target;
-            // Check if the focused element is a text or number input
-            if (focusedElement.tagName.toLowerCase() === 'input' &&
-                (focusedElement.type === 'text' || focusedElement.type === 'number')) {
-                e.preventDefault(); // Stop the default form submission
-                // Optionally, trigger the "Next Question" button click
-                // This makes hitting enter move to the next question for text/number inputs
-                nextQuestionBtn.click();
-            }
+            e.preventDefault(); // Stop the default form submission unconditionally
+        }
+    });
+
+    // Global: Prevent unintended form submission on Enter key press anywhere else on the document
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter') {
+            e.preventDefault(); // Stop the default form submission unconditionally
         }
     });
 

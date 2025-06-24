@@ -494,19 +494,26 @@ document.addEventListener('DOMContentLoaded', () => {
                     userAnswerDisplay = q.options[userAnswer]; // Display the option text, not just the key
                 }
             } else if (q.type === 'text') {
+                // Specific custom validation for Q12 (Punctuation Commas from previous turn)
                 if (q.id === 'q12') {
-                    // Custom logic for Q12: Must start with a capital letter, contain 'blue', and end with a full stop
+                    // Custom logic for Q12: Must start with a capital letter, contain 'blue', and end with a full stop (adjusted based on previous turn's file structure)
                     const trimmedAnswer = userAnswer.trim();
                     isCorrect = trimmedAnswer.length > 0 &&
                                 trimmedAnswer[0] === trimmedAnswer[0].toUpperCase() &&
                                 /[A-Z]/.test(trimmedAnswer[0]) && // Ensure the first char is an actual letter
                                 trimmedAnswer.toLowerCase().includes('blue') &&
                                 trimmedAnswer.endsWith('.');
-                } else {
+                } else if (q.id === 'q15') { // Custom validation for Q15 (Question Mark Sentence from previous turn)
+                    isCorrect = userAnswer.trim().length > 0 &&
+                                userAnswer.trim().endsWith('?') &&
+                                userAnswer.trim()[0] === userAnswer.trim()[0].toUpperCase();
+                }
+                else { // General text input comparison
                     isCorrect = userAnswer.toLowerCase().trim() === q.correctAnswer.toLowerCase().trim();
                 }
             } else if (q.type === 'number') {
-				isCorrect = parseFloat(userAnswer) === q.correctAnswer;
+				// Fix: Use parseFloat for number comparisons to handle decimals correctly
+                isCorrect = parseFloat(userAnswer) === q.correctAnswer;
             }
 
             if (isCorrect) {
@@ -730,6 +737,21 @@ ${resultsTextContent}
         console.error('Turnstile widget encountered an error.');
         alert('There was an issue loading the security check. Please refresh the page.');
     };
+
+    // New: Prevent unintended form submission on Enter key press within assessment questions
+    assessmentForm.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter') {
+            const focusedElement = e.target;
+            // Check if the focused element is a text or number input
+            if (focusedElement.tagName.toLowerCase() === 'input' &&
+                (focusedElement.type === 'text' || focusedElement.type === 'number')) {
+                e.preventDefault(); // Stop the default form submission
+                // Optionally, trigger the "Next Question" button click
+                // This makes hitting enter move to the next question for text/number inputs
+                nextQuestionBtn.click();
+            }
+        }
+    });
 
     // Next Question Button
     nextQuestionBtn.addEventListener('click', nextQuestion);
